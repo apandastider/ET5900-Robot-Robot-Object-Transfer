@@ -38,6 +38,83 @@ This is **a mobile robot–fixed manipulator transfer**. The orange block is rel
 
 **Important:** These coordinates and joint angles apply to the recorded Gazebo world, map alignment, robot model, tray geometry, and collision-scene configuration. They are not portable calibration values.
 
+## Installation and Setup
+
+### 1. System Requirements
+
+- Ubuntu 24.04 LTS
+- ROS 2 Jazzy
+- Gazebo Sim 8
+- MoveIt 2
+- Navigation2 (Nav2)
+- TurtleBot 4 ROS 2 packages
+- UFACTORY Lite 6 / xarm ROS 2 packages
+
+See [Dependencies](docs/DEPENDENCIES.md) for additional setup requirements.
+
+### 2. Clone the Repository
+
+Open an Ubuntu terminal:
+
+```bash
+cd ~
+
+git clone https://github.com/apandastider/ET5900-Robot-Robot-Object-Transfer.git ~/mrs_tray_ws
+
+cd ~/mrs_tray_ws
+```
+
+**Note:** These commands are for a fresh installation. Do not clone over an existing `~/mrs_tray_ws` directory.
+
+### 3. Build the ROS 2 Workspace
+
+First install and build the upstream TurtleBot 4 and UFACTORY Lite 6 dependencies described in `docs/DEPENDENCIES.md`.
+
+Then build this project:
+
+```bash
+source /opt/ros/jazzy/setup.bash
+
+cd ~/mrs_tray_ws
+
+colcon build --symlink-install
+```
+
+### 4. Source the Workspace
+
+```bash
+source ~/mrs_tray_ws/tray_env.sh
+```
+
+The environment script is configured for the original project workspace layout and required ROS 2 overlays. Review its paths when installing on a different machine.
+
+### 5. Run the Simulation
+
+The complete step-by-step launch instructions, including Gazebo, TurtleBot 4, Lite 6, MoveIt 2, Nav2, the orange block, and the virtual grasp bridge, are available in:
+
+[Full Simulation Guide](docs/RUN_DEMO.md)
+
+### 6. Run the FSM
+
+After launching the simulation components, verify readiness:
+
+```bash
+source ~/mrs_tray_ws/tray_env.sh
+
+python3 ~/mrs_tray_ws/scripts/tray_transfer_fsm.py --check-only
+```
+
+Execute the complete robot-to-robot transfer demonstration:
+
+```bash
+python3 -u ~/mrs_tray_ws/scripts/tray_transfer_fsm.py \
+  2>&1 | tee ~/mrs_tray_ws/tray_transfer_demo.log
+```
+
+The FSM coordinates TurtleBot navigation, Lite 6 pregrasp, virtual attachment, lifting, placement, release, retraction, and final navigation.
+
+**Note:** The current grasp uses simulated pose-following rather than a physical fixed joint.
+
 ## Repository layout
 
 ```text
