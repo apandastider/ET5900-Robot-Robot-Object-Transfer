@@ -42,3 +42,11 @@
 **/*.pth
 **/*.ckpt
 **/*.onnx
+
+# Experimental backups and temporary files
+*_backup.py
+*_old.py
+*.bak
+*.before_fix
+__pycache__/
+*.pyc
