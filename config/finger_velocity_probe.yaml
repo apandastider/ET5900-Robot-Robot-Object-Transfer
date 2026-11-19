@@ -1,0 +1,11 @@
+/lite6/controller_manager:
+  ros__parameters:
+    finger_velocity_probe:
+      type: forward_command_controller/ForwardCommandController
+
+/lite6/finger_velocity_probe:
+  ros__parameters:
+    type: forward_command_controller/ForwardCommandController
+    joints:
+      - finger_joint1
+    interface_name: velocity

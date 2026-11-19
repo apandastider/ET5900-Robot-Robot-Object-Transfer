@@ -1,0 +1,44 @@
+# ROS 2 / colcon outputs (never commit installed build artifacts)
+**/build/
+**/install/
+**/log/
+**/.colcon/
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+
+# Editor/OS caches
+.vscode/
+.idea/
+.DS_Store
+*~
+*.swp
+
+# Secrets and local environment state
+.env
+.env.*
+!.env.example
+**/secrets/
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/id_rsa*
+**/id_ed25519*
+
+# Simulation logs / ROS recordings / generated temporary data
+**/*.db3
+**/*.mcap
+**/*.bag
+**/*.log
+**/rosbag2_*/
+**/.ros/
+**/core
+**/core.*
+
+# Large GPU/ML checkpoints should go in releases or LFS
+**/*.pt
+**/*.pth
+**/*.ckpt
+**/*.onnx

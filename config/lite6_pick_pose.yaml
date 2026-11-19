@@ -1,0 +1,16 @@
+# Nominal joint configuration observed in this specific Gazebo experiment.
+# Verify it against the real model pose before executing motion.
+joint_names:
+  - joint1
+  - joint2
+  - joint3
+  - joint4
+  - joint5
+  - joint6
+pickup_positions:
+  - 1.5847
+  - 1.1331
+  - 1.6169
+  - -3.1415
+  - -0.4835
+  - 4.7262

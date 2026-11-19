@@ -1,0 +1,6 @@
+# Latest tested map-frame navigation target, TurtleBot 4 Lite
+# This is a Nav2 destination, NOT a permanently valid robot position.
+frame_id: map
+x: -0.40
+y: 0.15
+yaw_rad: 0.0
